@@ -1,0 +1,58 @@
+python short-spyne.py 
+Start serving
+DEBUG:spyne.protocol.soap.soap11:ValueError: Deserializing from unicode strings with encoding declaration is not supported by lxml.
+DEBUG:spyne.protocol.xml:Validated ? True
+DEBUG:spyne.protocol.xml:Method request string: {http://om.open.ac.uk/}getQuestionMetadata
+DEBUG:spyne.protocol.xml:<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://om.open.ac.uk/">
+  <SOAP-ENV:Body>
+    <ns1:getQuestionMetadata/>
+    <param1>b</param1>
+    <param2>c</param2>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+
+Called getQuestionMetadata( None None None )
+ctx isWsgiMethodContext(
+	out_body_doc=None, 
+	protocol=<spyne._base.ProtocolContext object at 0x7f32ded0d110>, 
+	locale=None, 
+	app=<spyne.application.Application object at 0x7f32dee80250>, 
+	out_object=None, 
+	_out_protocol=<spyne.protocol.soap.soap11.Soap11 object at 0x7f32dee801d0>, 
+	in_error=None, 
+	event=<spyne._base.EventContext object at 0x7f32ded0d150>, 
+	is_closed=False, 
+	_MethodContext__descriptor=<spyne._base.MethodDescriptor object at 0x7f32dee80150>, 
+	call_start=1457475538.497256, 
+	method_request_string='{http://om.open.ac.uk/}getQuestionMetadata', 
+	transport=<spyne.server.wsgi.WsgiTransportContext object at 0x7f32ded0d1d0>, 
+	inprot_ctx=<spyne._base.ProtocolContext object at 0x7f32ded0d110>, 
+	aux=None, 
+	in_header_doc=None, 
+	in_header=None, 
+	function=<function getQuestionMetadata at 0x7f32dee75b90>, 
+	files=[], 
+	call_end=None, 
+	out_header_doc=None, 
+	udc=None, 
+	out_document=None, 
+	out_header=None, 
+	out_stream=None, 
+	in_document=<Element {http://schemas.xmlsoap.org/soap/envelope/}Envelope at 0x7f32ded0a7a0>, 
+	out_error=None, 
+	in_body_doc=<Element {http://om.open.ac.uk/}getQuestionMetadata at 0x7f32ded0aa28>, 
+	in_object=getQuestionMetadata(), 
+	frozen=True, 
+	in_string=<generator object __wsgi_input_to_iterable at 0x7f32ded6ceb0>, 
+	in_protocol=<spyne.protocol.soap.soap11.Soap11 object at 0x7f32dee70950>, 
+	outprot_ctx=<spyne._base.ProtocolContext object at 0x7f32ded0d0d0>, 
+	out_string=None, 
+))
+None
+DEBUG:spyne.protocol.xml:Response <soap11env:Envelope xmlns:tns="http://om.open.ac.uk/" xmlns:soap11env="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap11env:Body>
+    <tns:getQuestionMetadataResponse>Return a bare string..</tns:getQuestionMetadataResponse>
+  </soap11env:Body>
+</soap11env:Envelope>
+
+192.12.242.46 - - [08/Mar/2016 15:18:58] "POST /php HTTP/1.1" 200 296

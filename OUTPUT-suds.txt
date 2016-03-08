@@ -1,0 +1,61 @@
+sdr-8$ python short-spyne.py 
+Start serving
+DEBUG:spyne.protocol.soap.soap11:ValueError: Deserializing from unicode strings with encoding declaration is not supported by lxml.
+DEBUG:spyne.protocol.xml:Validated ? True
+DEBUG:spyne.protocol.xml:Method request string: {http://om.open.ac.uk/}getQuestionMetadata
+DEBUG:spyne.protocol.xml:<SOAP-ENV:Envelope xmlns:ns0="http://om.open.ac.uk/" xmlns:ns1="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header/>
+  <ns1:Body>
+    <ns0:getQuestionMetadata>
+      <ns0:questionID>one</ns0:questionID>
+      <ns0:questionVersion>two</ns0:questionVersion>
+      <ns0:questionBaseURL>tree</ns0:questionBaseURL>
+    </ns0:getQuestionMetadata>
+  </ns1:Body>
+</SOAP-ENV:Envelope>
+
+Called getQuestionMetadata( one two tree )
+ctx isWsgiMethodContext(
+	out_body_doc=None, 
+	protocol=<spyne._base.ProtocolContext object at 0x7ff27be63090>, 
+	locale=None, 
+	app=<spyne.application.Application object at 0x7ff27bfd3250>, 
+	out_object=None, 
+	_out_protocol=<spyne.protocol.soap.soap11.Soap11 object at 0x7ff27bfd31d0>, 
+	in_error=None, 
+	event=<spyne._base.EventContext object at 0x7ff27be630d0>, 
+	is_closed=False, 
+	_MethodContext__descriptor=<spyne._base.MethodDescriptor object at 0x7ff27bfd3150>, 
+	call_start=1457475503.769848, 
+	method_request_string='{http://om.open.ac.uk/}getQuestionMetadata', 
+	transport=<spyne.server.wsgi.WsgiTransportContext object at 0x7ff27be4cf50>, 
+	inprot_ctx=<spyne._base.ProtocolContext object at 0x7ff27be63090>, 
+	aux=None, 
+	in_header_doc=[], 
+	in_header=None, 
+	function=<function getQuestionMetadata at 0x7ff27bfc8b90>, 
+	files=[], 
+	call_end=None, 
+	out_header_doc=None, 
+	udc=None, 
+	out_document=None, 
+	out_header=None, 
+	out_stream=None, 
+	in_document=<Element {http://schemas.xmlsoap.org/soap/envelope/}Envelope at 0x7ff27be5d7e8>, 
+	out_error=None, 
+	in_body_doc=<Element {http://om.open.ac.uk/}getQuestionMetadata at 0x7ff27be5dab8>, 
+	in_object=getQuestionMetadata(questionID='one', questionVersion='two', questionBaseURL='tree'), 
+	frozen=True, 
+	in_string=<generator object __wsgi_input_to_iterable at 0x7ff27beb2e10>, 
+	in_protocol=<spyne.protocol.soap.soap11.Soap11 object at 0x7ff27bfc3950>, 
+	outprot_ctx=<spyne._base.ProtocolContext object at 0x7ff27be63050>, 
+	out_string=None, 
+))
+None
+DEBUG:spyne.protocol.xml:Response <soap11env:Envelope xmlns:tns="http://om.open.ac.uk/" xmlns:soap11env="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap11env:Body>
+    <tns:getQuestionMetadataResponse>Return a bare string..</tns:getQuestionMetadataResponse>
+  </soap11env:Body>
+</soap11env:Envelope>
+
+192.12.242.46 - - [08/Mar/2016 15:18:23] "POST / HTTP/1.1" 200 296
