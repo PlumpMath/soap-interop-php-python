@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsa="http://schemas.xmlsoap.org/ws/2003/03/addressing" xmlns:tns="http://om.open.ac.uk/" xmlns:plink="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:xop="http://www.w3.org/2004/08/xop/include" xmlns:soap12env="http://www.w3.org/2003/05/soap-envelope" xmlns:soap11env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap12enc="http://www.w3.org/2003/05/soap-encoding" xmlns:soap11enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://om.open.ac.uk/" name="Application">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://om.open.ac.uk/" elementFormDefault="qualified">
+      <xs:complexType name="getQuestionMetadata">
+        <xs:sequence>
+          <xs:element name="questionID" type="xs:string" minOccurs="0" nillable="true"/>
+          <xs:element name="questionVersion" type="xs:string" minOccurs="0" nillable="true"/>
+          <xs:element name="questionBaseURL" type="xs:string" minOccurs="0" nillable="true"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getQuestionMetadata" type="tns:getQuestionMetadata"/>
+      <xs:element name="getQuestionMetadataResponse" type="xs:string"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getQuestionMetadata">
+    <wsdl:part name="getQuestionMetadata" element="tns:getQuestionMetadata"/>
+  </wsdl:message>
+  <wsdl:message name="getQuestionMetadataResponse">
+    <wsdl:part name="getQuestionMetadataResponse" element="tns:getQuestionMetadataResponse"/>
+  </wsdl:message>
+  <wsdl:service name="ShortTest">
+    <wsdl:port name="Application" binding="tns:Application">
+      <soap:address location="http://sdr.cs.colorado.edu:4444/"/>
+    </wsdl:port>
+  </wsdl:service>
+  <wsdl:portType name="Application">
+    <wsdl:operation name="getQuestionMetadata" parameterOrder="getQuestionMetadata">
+      <wsdl:input name="getQuestionMetadata" message="tns:getQuestionMetadata"/>
+      <wsdl:output name="getQuestionMetadataResponse" message="tns:getQuestionMetadataResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Application" type="tns:Application">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getQuestionMetadata">
+      <soap:operation soapAction="getQuestionMetadata" style="document"/>
+      <wsdl:input name="getQuestionMetadata">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getQuestionMetadataResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>
